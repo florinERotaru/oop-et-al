@@ -1,2 +1,2 @@
 # oop-et-al
-Florin Eugen Rotaru, B4 FII
+F. E. R., B4 FII
