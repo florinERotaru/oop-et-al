@@ -41,6 +41,7 @@ int main()
                 element[i + 1] = element[i];
                 t = false;
             }
+
         }
     }
     for (int i = 0; i < n; i++)
