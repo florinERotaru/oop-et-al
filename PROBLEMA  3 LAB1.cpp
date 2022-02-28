@@ -1,30 +1,28 @@
 #include <iostream>
 #include <stdio.h>
-#include <cstring>
+#include <string.h>
 
 struct Element
 {
     char cuvant[100];
     int lungime;
 };
-
+Element element[100];
+char prop[256];
 int main()
 {
-    Element element[100];
-    char prop[256];
     scanf("%[^\n]", prop);
-    printf("%s", prop);
     const char s[2] = " ";
     char* token;
-
     token = strtok(prop, s);
-    int i = 0;
+    int i = 0;   
     while (token != NULL)
     {
-        token = strtok(NULL, s);
+        
         strcpy(element[i].cuvant, token);
-        printf(" %s\n", element[i].cuvant);
         element[i].lungime = strlen(element[i].cuvant);
+        //std::cout << element[i].cuvant;
+        token = strtok(NULL, s);
         i++;
     }
     int n = i;
@@ -38,7 +36,7 @@ int main()
             {
                 Element aux = element[i];
                 element[i] = element[i + 1];
-                element[i + 1] = element[i];
+                element[i + 1] = aux;
                 t = false;
             }
 
