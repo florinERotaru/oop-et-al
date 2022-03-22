@@ -1,8 +1,7 @@
 #pragma once
 class Canvas
-
 {
-    char matrix[100][100]; // add private data members
+    char matrix[200][200]; // add private data members
     int width;
     int height;
   public:
