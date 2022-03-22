@@ -19,7 +19,7 @@ void Canvas::DrawCircle(int x, int y, int ray, char ch) {
         for (int j=0; j<width; j++) 
         {
             if (distance(i, j, x, y) == ray)
-                matrix[i][j] = ch;
+                Canvas::SetPoint(i, j, ch);
         }
 }
 
@@ -27,27 +27,27 @@ void Canvas::FillCircle(int x, int y, int ray, char ch) {
     for (int i = 0; i < height; i++)
         for (int j = 0; j < width; j++) {
             if (distance(i, j, x, y) < ray)
-                matrix[i][j] = ch;
+                Canvas::SetPoint(i, j, ch);
         }
 }
 
 void Canvas::DrawRect(int left, int top, int right, int bottom, char ch) {
     for (int i = left; i < right; i++)
-        matrix[top][i] = ch;
+        Canvas::SetPoint(top, i, ch);
     for (int i = left; i < right; i++)
-        matrix[bottom][i] = ch;
+        Canvas::SetPoint(bottom, i, ch);
 
     for (int i = top; i < bottom; i++)
-        matrix[i][left] = ch;
+        Canvas::SetPoint(i, left, ch);
     for (int i = top; i <= bottom; i++)
-        matrix[i][right] = ch;
+        Canvas::SetPoint(i, right, ch);
 
 }
 
 void Canvas::FillRect(int left, int top, int right, int bottom, char ch) {
-    for (int i = top+1; i < bottom; i++)
-        for (int j = left+1; j < right; j++)
-            matrix[i][j] = ch;
+    for (int i = top + 1; i < bottom; i++)
+        for (int j = left + 1; j < right; j++)
+            Canvas::SetPoint(i, j, ch);
 
 }
 
