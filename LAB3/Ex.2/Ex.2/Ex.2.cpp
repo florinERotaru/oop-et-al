@@ -4,15 +4,14 @@
 #include "Canvas.h"
 int main()
 {
-    /*char ch = '-';
-    Canvas canvas(100,100);
-    canvas.DrawCircle(50, 50, 10, 'o');
-    canvas.FillCircle(50, 50, 10, ch);
-    canvas.Clear();
+    char ch = '-';
+    Canvas canvas(200,200);
+    canvas.DrawCircle(20, 150, 10, 'o');
+    canvas.FillCircle(20, 150, 10, ch);
     canvas.DrawRect(10, 20, 90, 40, ch);
     canvas.FillRect(10, 20, 90, 40, 'o');
-    canvas.Print();*/
-
+    canvas.DrawLine(40, 10, 70, 60, 'o');
+    canvas.Print();
 
     return 0;
 }

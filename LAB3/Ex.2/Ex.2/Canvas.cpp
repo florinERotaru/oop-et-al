@@ -56,9 +56,40 @@ void Canvas::SetPoint(int x, int y, char ch) {
 }
 
 void Canvas::DrawLine(int x1, int y1, int x2, int y2, char ch) {
-
+    int x  = x1;
+    int y  = y1;
+    int dx = abs(x2 - x1);
+    int dy = abs(y2 - y1);
+    if ((y2 - y1) * (x2 - x1) < 0 || dy < dx) {
+        std::cout << "SLOPE IS NEGATIVE";
+        // slope <1
+        int p = 2 * dy - dx;
+        while (x <= x2) {
+            Canvas::SetPoint(x, y, ch);
+            x++;
+            if (p < 0)
+                p += 2 * dy;
+            else {
+                p += 2 * dy - 2 * dx;
+                y++;
+            }
+        }
+    } else {
+        // slope >=1
+        std::cout << "SLOPE IS POSITIVE";
+        int p = 2 * dx - dy;
+        while (y <= y2) {
+            Canvas::SetPoint(x, y, ch);
+            y++;
+            if (p < 0)
+                p += 2 * dx;
+            else {
+                p += 2 * dx - 2 * dy;
+                x++;
+            }
+        }
+    }
 }
-
 
 void Canvas::Print(){
     for (int i = 0; i < height; i++) {
