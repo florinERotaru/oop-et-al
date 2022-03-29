@@ -22,6 +22,6 @@ class Sort
     void Print() const;
 
     int GetElementsCount();
-
+    void inverse();
     int GetElementFromIndex(int index);
 };

@@ -59,6 +59,7 @@ Sort::Sort(const char* chr) {
     }
     delete[] c;
 }
+
 int partition(int v[10], int p, int q) {
     int x   = v[p];
     int i   = p + 1;
@@ -92,10 +93,43 @@ void Quick(int v[10], int p, int q) {
     }
 }
 
+void Sort::InsertSort(bool ascendent) {
+    for (int i = 0; i < count; ++i) {
+        int j    = i - 1;
+        int temp = list[i];
+        while (j >= 0 && list[j] > temp) {
+            list[j + 1] = list[j];
+            --j;
+        }
+        list[j + 1] = temp;
+    }
+    if (!ascendent)
+        inverse();
+}
 void Sort::QuickSort(bool ascendent) {
     int p = 0;
     int q = this->GetElementsCount()-1;
     Quick(list, p, q);
+    if (!ascendent)
+        inverse();
+}
+
+void Sort::BubbleSort(bool ascendent) {
+    int last = count-1 ;
+    while (last > 0) {
+        int n = last;
+        last  = 0;
+        for (int i=0; i<n; ++i)
+            if (list[i] > list[i + 1]) {
+                int aux = list[i];
+                list[i] = list[i + 1];
+                list[i + 1] = aux;
+                last        = i;
+            }
+                
+    }
+    if (!ascendent)
+        inverse();
 }
 
 void Sort::Print() const {
@@ -106,6 +140,16 @@ void Sort::Print() const {
 
 int Sort::GetElementsCount() {
     return count;
+}
+
+void Sort::inverse() 
+{
+    int aux = 0;
+    for (int i=0; i<count/2; ++i ) {
+        aux = list[i];
+        list[i] = list[count - 1 - i];
+        list[count - 1 - i] = aux;
+    }
 }
 
 int Sort::GetElementFromIndex(int index) {
