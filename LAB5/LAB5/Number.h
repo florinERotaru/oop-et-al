@@ -2,12 +2,15 @@
 class Number
 
 {
-    char *x; // add data members
+    char *x; // add data members //pt int*
+            //*ptr1=*ptr2(new int inainte)
     int base;
 
   public:
     Number(const char* value, int base); // where base is between 2 and 16
-
+    Number(int value); 
+    Number(const Number& n);
+    Number(Number&& n);
     ~Number();
 
     // add operators and copy/move constructor
@@ -24,7 +27,9 @@ class Number
     Number& operator--();
     Number& operator--(int);
     Number& operator+=( Number& num );
-
+    Number& operator=(const Number& num);
+    Number& operator=(int n);
+    Number& operator=(const char *str);
 };
 int DigitNumber(int x);
       // add the following operators: addition, subtraction, 

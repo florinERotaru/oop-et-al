@@ -79,15 +79,60 @@ Number& Number::operator--(int) { //--x
 }
 
 Number& Number::operator+=( Number& num) {
-    *this = *this + num;
+
+    *this = operator+(*this, num);
     return *this;
     // TODO: insert return statement here
 }
 
-
+Number& Number::operator=(const Number& num) {
+    //strcpy(x, num.x);
+    x    = new char[strlen(num.x) + 1];
+    strcpy(x, num.x);
+    base = num.base;
+    return *this;
+}
+Number& Number::operator=(int n) {
+    delete x;
+    x         = new char[DigitNumber(n) + 1];
+    char* str = new char[DigitNumber(n) + 1];
+    itoa(n, str, 10);
+    strcpy(x, str);
+    return *this;
+    // TODO: insert return statement here
+}
+Number& Number::operator=(const char* str) {
+    delete x;
+    x = new char[strlen(str) + 1];
+    strcpy(x, str);
+    return *this;
+    // TODO: insert return statement here
+}
+//= operator for integers;
 Number::Number(const char* value, int base) {
      x = new char[strlen(value) + 1];
     this->base = base;
+}
+
+Number::Number(int value) {
+    x = new char[DigitNumber(value) + 1];
+    base = 10;
+}
+
+Number::Number(const Number& n) { //copy ctor 
+    //strcpy(x, n.x);
+    //delete
+    x    = strdup(n.x);
+    base = n.base;
+
+}
+
+
+Number::Number(Number&& n) {
+    x = n.x;
+    base = n.base;
+    n.x  = nullptr;
+    n.base = 0;
 }
 
 Number::~Number() {
