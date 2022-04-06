@@ -52,6 +52,8 @@ char* fromDeci(int base, int inputNum) {
 
 void Number::SwitchBase(int newBase) {
 
+    if (base == newBase)
+        return;
     int num = toDeci(x, base);
     this->x   = fromDeci(newBase, num);
     this->base     = newBase;
@@ -63,6 +65,10 @@ void Number::Print(){
 
 int Number::GetDigitsCount() {
     return strlen(x);
+}
+
+int Number::GetBase() {
+    return base;
 }
 
 Number& Number::operator--() {//--x
@@ -96,7 +102,8 @@ Number& Number::operator=(int n) {
     delete x;
     x         = new char[DigitNumber(n) + 1];
     char* str = new char[DigitNumber(n) + 1];
-    itoa(n, str, 10);
+    _itoa(n, str, 10);
+    base = 10;
     strcpy(x, str);
     return *this;
     // TODO: insert return statement here
@@ -105,24 +112,32 @@ Number& Number::operator=(const char* str) {
     delete x;
     x = new char[strlen(str) + 1];
     strcpy(x, str);
+    base = 10;
     return *this;
     // TODO: insert return statement here
+}
+char Number::operator[](int index) {
+    return x[index];
 }
 //= operator for integers;
 Number::Number(const char* value, int base) {
      x = new char[strlen(value) + 1];
+    strcpy(x, value);
     this->base = base;
 }
 
 Number::Number(int value) {
     x = new char[DigitNumber(value) + 1];
+
     base = 10;
 }
 
 Number::Number(const Number& n) { //copy ctor 
     //strcpy(x, n.x);
     //delete
-    x    = strdup(n.x);
+    delete x;
+    x = new char[strlen(n.x) + 1];
+    strcpy(x, n.x);
     base = n.base;
 
 }
@@ -157,7 +172,7 @@ Number operator+(Number& n3, Number& n4) {
     int y = atoi(n2.x);
     x += y;
     char* res = new char[n1.GetDigitsCount() + n2.GetDigitsCount() + 1];
-    itoa(x, res, b);
+    _itoa(x, res, b);
     return { res, b };
 }
 
@@ -180,7 +195,7 @@ Number operator-(Number& n3, Number& n4) {
     int y = atoi(n2.x);
     x -= y;
     char* res = new char[n1.GetDigitsCount() + n2.GetDigitsCount()+1];
-    itoa(x, res, b);
+    _itoa(x, res, b);
     return { res, b };
 }
 

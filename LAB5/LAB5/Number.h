@@ -30,6 +30,7 @@ class Number
     Number& operator=(const Number& num);
     Number& operator=(int n);
     Number& operator=(const char *str);
+    char operator[](int index);
 };
 int DigitNumber(int x);
       // add the following operators: addition, subtraction, 

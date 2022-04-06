@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 // LAB5.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
@@ -6,8 +6,13 @@
 #include "Number.h"
 int main()
 
-{
-    Number n1("10110010", 2);
+{ /*
+    // Number n1("101", 2);
+    // Number n2("10", 10);
+    // n1 += n2;
+    // n1.Print (); //afiseaza 15
+
+   /* Number n1("10110010", 2);
 
     Number n2("734", 8);
 
@@ -25,13 +30,13 @@ int main()
 
     n2.Print();
 
-    n1 = (n2 + n3 - n1) + n1; // after this n1 will be in base 16
+   // n1 = (n2 + n3 - n1) + n1; // after this n1 will be in base 16
 
-    n1.SwitchBase(2);
+    n1.SwitchBase(10);
 
     n1.Print();
 
-    if (n1 > n2)
+ /*   if (n1 > n2)
         printf("n1 is bigger than n2\n");
     else
         printf("n2 is bigger than n1\n");
@@ -55,6 +60,12 @@ int main()
     n4--; // the last digit from n4 will be remove ==> n4 becomes 357
 
     n4.Print();
+    */
 
+    Number n1("123", 10);
+    Number n2 = n1;
+    n2 = "12121";
+
+    n2.Print();
     return 0;
 }
