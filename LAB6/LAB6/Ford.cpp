@@ -18,3 +18,9 @@ Ford::Ford() {
     fuelCons = 10;
     strcpy(name, "Ford");
 }
+int Ford::getFuelCons() {
+    return fuelCons;
+}
+int Ford::getFuelCap() {
+    return fuelCap;
+}

@@ -16,3 +16,9 @@ Dacia::Dacia() {
     fuelCap = 45;
     fuelCons = 8;
 }
+int Dacia::getFuelCons() {
+    return fuelCons;
+}
+int Dacia::getFuelCap() {
+    return fuelCap;
+}

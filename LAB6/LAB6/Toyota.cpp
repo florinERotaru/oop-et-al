@@ -19,3 +19,9 @@ Toyota::Toyota() {
     fuelCap  = 50;
     fuelCons = 7;
 }
+int Toyota::getFuelCons() {
+    return fuelCons;
+}
+int Toyota::getFuelCap() {
+    return fuelCap;
+}

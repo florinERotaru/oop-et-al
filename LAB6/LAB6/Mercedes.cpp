@@ -19,3 +19,9 @@ Mercedes::Mercedes() {
     fuelCons = 12;
     strcpy(name, "Mercedes");
 }
+int Mercedes::getFuelCons() {
+    return fuelCons;
+}
+int Mercedes::getFuelCap() {
+    return fuelCap;
+}

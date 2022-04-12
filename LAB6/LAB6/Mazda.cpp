@@ -20,3 +20,9 @@ Mazda::Mazda() {
     fuelCons = 8;
     strcpy(name, "Mazda");
 }
+int Mazda::getFuelCons() {
+    return fuelCons;
+}
+int Mazda::getFuelCap() {
+    return fuelCap;
+}

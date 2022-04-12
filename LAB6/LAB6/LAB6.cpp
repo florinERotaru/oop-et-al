@@ -3,40 +3,39 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "Weaher.h"
+#include "Circuit.h"
 #include "Car.h"
-#include "Dacia.h"
-int main() {
 
-      Dacia d;
-    std::cout << d.fuelCap;
+ int main()
 
-    //Circuit c;
-    //    
-    //c.SetLength(100);
+{
+    Circuit c;
 
-    //c.SetWeather(Weather::Rain);
+    c.SetLength(100);
 
-    //c.AddCar(new Dacia());
+    c.SetWeather(Weather::Rain);
 
-    //c.AddCar(new Toyota());
+    c.AddCar(new Dacia());
 
-    //c.AddCar(new Mercedes());
+    c.AddCar(new Toyota());
 
-    //c.AddCar(new Ford());
+    c.AddCar(new Mercedes());
 
-    //c.AddCar(new Mazda());
+    c.AddCar(new Ford());
 
-    //c.Race();
+    c.AddCar(new Mazda());
 
-    //c.ShowFinalRanks(); // it will print the time each car needed to finish the circuit sorted from the fastest car to
-    //                    // the   slowest.
+    c.Race();
 
-    //c.ShowWhoDidNotFinish(); // it is possible that some cars don't have enough fuel to finish the circuit
+    c.ShowFinalRanks(); // it will print the time each car needed to finish the circuit sorted from the fastest car to
+                        // the   slowest.
+
+    c.ShowWhoDidNotFinish(); // it is possible that some cars don't have enough fuel to finish the circuit
 
     return 0;
 }
 
-//#include <iostream>
+      //#include <iostream>
 //
 //using namespace std;
 //class car {
