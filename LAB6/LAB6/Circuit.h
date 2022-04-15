@@ -9,16 +9,17 @@
 class Circuit {
   private:
     int length;
-    Car* cars[20];
-    Car* stopped[20];
+    //Car* stopped[20];
     int carsNumber;
-    int stoppedNumber;
+    //int stoppedNumber;
     int weather;
     
   public:
+    Car* cars[20];
     Circuit();
     void AddCar(Car* model);
-    void AddStopped(Car* model);
+   // void AddStopped(Car* model);
+    float Result(Car* candidate); // -1 daca se opreste, altfel, timpul de ajungere
     void SetWeather(int weather);
     void SetLength(int length);
     void Race();

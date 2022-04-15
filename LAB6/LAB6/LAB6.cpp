@@ -11,7 +11,7 @@
 {
     Circuit c;
 
-    c.SetLength(100);
+    c.SetLength(600);
 
     c.SetWeather(Weather::Rain);
 
@@ -31,26 +31,5 @@
                         // the   slowest.
 
     c.ShowWhoDidNotFinish(); // it is possible that some cars don't have enough fuel to finish the circuit
-
     return 0;
 }
-
-      //#include <iostream>
-//
-//using namespace std;
-//class car {
-//  public:
-//    int x;
-//    virtual int f() = 0;
-//};
-//class tire : public car {
-//    int h;
-//    int f() {
-//        return 3;
-//    }
-//};
-//int main() {
-//    tire t;
-//    t.x = 3;
-//    return 0;
-//}
