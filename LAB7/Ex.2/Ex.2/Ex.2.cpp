@@ -23,6 +23,7 @@ int main()
     x.Sort(nullptr);
     x.Print();
     x.Set(2, 100);
+    std::cout << "Elementul cu nr " << 9999 << " este pe poz: " << x.FirstIndex(9999, nullptr)<<std::endl;
     std::cout << "al 3lea element este " << x.Get(2)<<std::endl;
 
     return 0;

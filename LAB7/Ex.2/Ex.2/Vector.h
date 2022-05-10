@@ -16,4 +16,5 @@ class Vector {
     const T& Get(int index);
     void Set(int index, T value);
     int GetCount();
+    int FirstIndex(T obj, bool (*equal)(T,T));
 };

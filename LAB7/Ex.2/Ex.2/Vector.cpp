@@ -17,6 +17,13 @@ bool Compare(T x, T y) {
         return 0;
 }
 template <class T>
+bool Equal(T x, T y) {
+    if (x == y)
+        return 1;
+    else
+        return 0;
+}
+template <class T>
 void Vector<T>::Push(const T& t) {
     if (count <= 30) {
         list[count] = new T;   
@@ -94,6 +101,16 @@ template <class T>
 int Vector<T>::GetCount() {
     return count;
     return 0;
+}
+
+template <class T>
+int Vector<T>::FirstIndex(T obj, bool (*equal)(T, T)) {
+    if (equal == nullptr)
+        equal = Equal;
+    for (int i = 0; i < count; i++)
+        if (equal(*list[i], obj))
+            return i;
+    return -1;
 }
 
 
