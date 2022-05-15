@@ -6,9 +6,13 @@
 #include <fstream>
 #include <map>
 #include <queue>
+#include <algorithm>    // std::min
 struct compare {
-    bool operator()(const std::pair<std::string, int>& p1, const std::pair<std::string, int>& p2) const{
-        return p1.second < p2.second;
+    bool operator()( std::pair<std::string, int>& x, std::pair<std::string, int>& y) const {
+        if (x.second != y.second)
+            return x.second < y.second;
+        else
+            return (x.first.compare(y.first)>0);
     }
 };
 void minimize(std::string &str) {
