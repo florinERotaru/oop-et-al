@@ -7,8 +7,8 @@ int main()
     m[10] = "C++";
     m[20] = "test";
     m[30] = "Poo";
-
-    
+    m.Set(30, "info.uaic");
+    //m.Clear();
     for (auto [key, value, index] : m)
     {
         printf("Index:%d, Key=%d, Value=%s\n", index, key, value);

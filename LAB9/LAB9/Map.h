@@ -1,24 +1,5 @@
 #pragma once
-template<class T1, class T2>
-class Iterator
-{
-public:
-	T1* keys;
-	T2* values;
-	int index;
-	Iterator& operator++() {
-		keys++;
-		values++;
-		index++;
-		return *this;
-	}
-	bool operator!=(Iterator& it) {
-		return (keys != it.keys && values != it.values && index != it.index);
-	}
-	auto operator*() {
-			return std::make_tuple(*keys, *values, index);
-	}
-};
+#include "Iterator.h"
 
 template <class T1, class T2>
 class Map
@@ -59,5 +40,41 @@ public:
 		return { &keys[index], &values[index], index };
 		//return it;
 	}
+
+	////methods
+    void Set(T1 key, T2 value) {
+        for (int i=0; i<index; i++) {
+            if (keys[i] == key) {
+                values[i] = value;
+                return;
+            }
+                
+		}
+    }
+    bool find(T1 key) {
+        for (int i = 0; i < index; i++) {
+            if (keys[i] == key) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    bool Get(const T1& key, T2& value) {
+        if (int i=find(key)) {
+            value = keys[i];
+            return true;
+        }
+        return false;
+
+	}
+    int Count() {
+        return index;
+	}
+    void Clear() {
+        memset(keys, 0, index * sizeof(keys[0]));
+        memset(values, 0, index * sizeof(values[0]));
+        index = 0;
+	}
+
 };
 
