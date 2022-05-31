@@ -75,6 +75,24 @@ public:
         memset(values, 0, index * sizeof(values[0]));
         index = 0;
 	}
-
+    bool Delete(const T1& key) {
+        int i = 0;
+        if (i = find(key) == -1)
+            return false;
+		//1 2 3 4 
+		//0 1 2 3 
+		for (int k=i; i<index-1; i++) {
+            keys[i] = keys[k + 1];
+            values[i] = values[k + 1];
+		}
+        return true;
+	}
+    bool Includes(const Map<T1, T2>& map) {
+        for (auto it : map) {
+            if (find(it.first) == -1)
+                return false;
+		}
+        return true;
+	}
 };
 
