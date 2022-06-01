@@ -68,7 +68,7 @@ int main() {
     std::string s;
     std::map<std::string, int> freq_map;
     std::fstream file_obj;
-    file_obj.open("test.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+    file_obj.open("test.txt", std::fstream::in | std::fstream::out | std::fstream::app);//file_obj << "..."; scriere in
     std::getline(file_obj, s);
     phrase_to_map(s, freq_map);
     print_map(freq_map);
