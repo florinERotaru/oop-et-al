@@ -1,11 +1,20 @@
 #pragma once
 #include "ClassIterator.h"
 #include "Compare.h"
+
+template<class T>
+class numeric : public Compare 
+{
+  public:
+    int CompareElements(void* e1, void* e2) override {
+        return *(T*) e1 > *(T*) e2;
+    }
+};
 template <class T>
 class Array
 
 {
-  private:
+  public:
     T** List; // lista cu pointeri la obiecte de tipul T*
 
     int Capacity; // dimensiunea listei de pointeri
@@ -39,7 +48,7 @@ class Array
 
     void Sort(); // sorteaza folosind comparatia intre elementele din T
 
-    void Sort(int (*compare)(const T&, const T&)); // sorteaza folosind o functie de comparatie
+    void Sort(bool (*compare)(const T&, const T&)); // sorteaza folosind o functie de comparatie
 
     void Sort(Compare* comparator); // sorteaza folosind un obiect de comparatie
 
@@ -67,4 +76,3 @@ class Array
 
     ArrayIterator<T> GetEndIterator();
 };
-
